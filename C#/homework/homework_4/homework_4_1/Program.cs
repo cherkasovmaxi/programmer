@@ -3,15 +3,31 @@
 //примеры для проверки:
 //3, 5 -> 243 (3⁵)
 //2, 4-> 16
-// нужно использовать функцию и не использовать Math.Pow
 
-void Step (int from, int to)
+
+int a = Task25(ReadInt());
+int b = Task25(ReadInt());
+
+void Task25 (int a, int b)
 {
-    if (from > to) return;
+    int n = ReadInt();
+    int result = 1;
 
-    Console.WriteLine($"{from}");
-
-    Step(from + 1, to);
+    for (int i = 0; i < n; i++)
+    {
+        result = result * n;
+    }
+    Console.WriteLine(result);
 }
 
-Step(1, 4);
+
+int ReadInt()
+{
+    Console.WriteLine("Enter the number");
+    string n = Console.ReadLine();
+
+    if (int.TryParse(n, out int i))
+        return i;
+
+    return -1;
+}
