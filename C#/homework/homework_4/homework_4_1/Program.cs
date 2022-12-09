@@ -21,26 +21,31 @@
 //}
 
 
-//int ReadInt()
-//{
-//    Console.WriteLine("Enter the number");
-//    string a = Console.ReadLine();
-
-//    if (int.TryParse(n, out int i))
-//        return i;
-
-//    return -1;
-//}
-
-
-
-int a = int.Parse(Console.ReadLine());
-int b = int.Parse(Console.ReadLine());
-int result = 1;
-
-for (int i = 0; i < b; i++)
-
+int ReadInt()
 {
-    result = result * a;
+    Console.WriteLine("enter the number");
+    string a = Console.ReadLine();
+
+    if (int.TryParse(a, out int i))
+        return i;
+
+    return -1;
 }
-Console.WriteLine(result);
+
+
+int GetPower(int a, int b)
+{
+    //int a = ReadInt();
+    //int b = ReadInt();
+    int result = 1;
+
+    for (int i = 0; i < b; i++)
+
+    {
+        result = result * a;
+    }
+    return result;
+}
+//Console.WriteLine(result);
+
+Console.WriteLine(GetPower(ReadInt(), ReadInt()));
