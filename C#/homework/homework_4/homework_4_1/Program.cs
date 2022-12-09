@@ -4,18 +4,19 @@
 //3, 5 -> 243 (3⁵)
 //2, 4-> 16
 
+int a = int.Parse(Console.ReadLine());
+int b = int.Parse(Console.ReadLine());
 
-int a = Task25(ReadInt());
-int b = Task25(ReadInt());
 
-void Task25 (int a, int b)
+void Task25 ()
 {
-    int n = ReadInt();
+    int a = ReadInt();
+    int b = ReadInt();
     int result = 1;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < b; i++)
     {
-        result = result * n;
+        result = result * a;
     }
     Console.WriteLine(result);
 }
@@ -24,7 +25,7 @@ void Task25 (int a, int b)
 int ReadInt()
 {
     Console.WriteLine("Enter the number");
-    string n = Console.ReadLine();
+    string a = Console.ReadLine();
 
     if (int.TryParse(n, out int i))
         return i;
