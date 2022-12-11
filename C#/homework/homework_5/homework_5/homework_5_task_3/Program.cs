@@ -51,7 +51,7 @@ string GetArrayAsString(int[] array)
     return s;
 }
 
-Console.WriteLine("Введите длину массива и получите сумму нечетных значений нечетных индексов в нем");
+Console.WriteLine("Введите длину массива и разницу максимального и минимального значения в нем");
 int[] array = CreateArray(Convert.ToInt32(Console.ReadLine()));
 Console.WriteLine(GetArrayAsString(array));
 Console.WriteLine(DiffMaxMin(array));
