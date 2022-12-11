@@ -17,7 +17,7 @@ int[] CreateArray(int length) // передаем переменную, но н�
 int DiffMaxMin(int[] array)
 {
     int max = 0;
-       for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
         if (array[i] > max)
         {
@@ -28,7 +28,7 @@ int DiffMaxMin(int[] array)
     int min = int.MaxValue;
     for (int i = 0; i < array.Length; i++)
     {
-        if  (array[i] < min)
+        if (array[i] < min)
         {
             min = array[i];
         }
