@@ -3,13 +3,40 @@
 //82 -> 10
 //9012 -> 12
 
+//int a = int.Parse(Console.ReadLine());
+
+
+
+//int SumNumber (int a)
+//{
+//    int result = 0;
+
+//    for (int i = 0; i < a; i++)
+//    {
+//        result = result + a % 10;
+//        a = a / 10;
+//    }
+//    Console.WriteLine(result);
+//}
+
+Console.WriteLine("Введите число и получите сумму цифр");
 int a = int.Parse(Console.ReadLine());
+Console.WriteLine(SumNumber(a));
 
-int result = 0;
-
-for (int i = 0; i< a; i++)
+int SumNumber(int a)
 {
-    result = result + a % 10;
-    a = a / 10;
+    var aStr = a.ToString();
+    int result = 0;
+    
+    for (int i = 0; i < aStr.Length; i++)
+    {
+        result += Convert.ToInt32(aStr[i].ToString());
+    }
+    return result;
+
 }
-Console.WriteLine(result);
+
+
+
+
+

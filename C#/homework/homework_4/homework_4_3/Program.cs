@@ -28,7 +28,11 @@ int[] GetArray(int length)
 {
     int[] array = new int[length];
 
-    Random random = new Random();
+    Random random = new Random();// источник рандома
+    for(int i = 0; i < array.Length; i++) //заполняем вышеуканным рандомом массив
+    {
+        array[i] = random.Next(1,8);//minValue - inclusive, maxValue - exclusive (не включено)
+    }
 
     return array;
 }
@@ -53,7 +57,7 @@ string GetArrayAsString(int[] array)
 
     foreach (var item in array)
     {
-        s += $"{item}, ";
+        s += $"{item} ";
     }
 
     return s;

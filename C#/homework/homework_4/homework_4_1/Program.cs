@@ -4,21 +4,7 @@
 //3, 5 -> 243 (3⁵)
 //2, 4-> 16
 
-//int a = int.Parse(Console.ReadLine());
-//int b = int.Parse(Console.ReadLine());
 
-
-//void Task25 ()
-//{
-//    int a = ReadInt();
-//    int b = ReadInt();
-//    int result = 1;
-//    for (int i = 0; i < b; i++)
-//    {
-//        result = result * a;
-//    }
-//    Console.WriteLine(result);
-//}
 
 
 int ReadInt()
@@ -35,8 +21,7 @@ int ReadInt()
 
 int GetPower(int a, int b)
 {
-    //int a = ReadInt();
-    //int b = ReadInt();
+ 
     int result = 1;
 
     for (int i = 0; i < b; i++)
@@ -46,6 +31,6 @@ int GetPower(int a, int b)
     }
     return result;
 }
-//Console.WriteLine(result);
+
 
 Console.WriteLine(GetPower(ReadInt(), ReadInt()));
