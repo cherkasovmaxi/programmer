@@ -2,16 +2,17 @@
 //0, 7, 8, -2, -2 -> 2
 //1, -7, 567, 89, 223-> 3
 
-string text = "0 7 8 -2 -2";
+Console.WriteLine("Введите последовательность чисел через пробел и узнайте сколько чисел больше нуля Вы ввели");
+string text = Console.ReadLine();
 
 int[] array = text.Split(' ').
           Where(x => !string.IsNullOrWhiteSpace(x)).
           Select(x => int.Parse(x)).ToArray();
-Console.WriteLine(array);
+
 int count = 0;
-for (int i = 0; i < array.Length; i++)
+for (int i = 0; i< array.Length; i++)
 {
-    if (array[i] > 0)
+    if (array[i] > 0) 
         count++;
 }
-Console.WriteLine(count);
+Console.WriteLine($"Чисел больше нуля:  {count}");
