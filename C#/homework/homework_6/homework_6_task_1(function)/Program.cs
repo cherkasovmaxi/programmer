@@ -3,17 +3,32 @@
 //1, -7, 567, 89, 223-> 3
 
 
+using System;
 using System.Net.NetworkInformation;
+using static System.Net.Mime.MediaTypeNames;
 
 Console.WriteLine("Введите последовательность чисел через пробел и узнайте сколько чисел больше нуля Вы ввели");
 
-int PositiveNumbersInString(string[] text)
+int PositiveNumbersInString()
 {
-    string text = Console.ReadLine;
-    int[] array = text.Split(' ').
+    string text = Console.ReadLine();
+    int[] array = GetNumbers(text);
+    return GetCount(array);
+}
+
+Console.WriteLine(PositiveNumbersInString());
+
+int[] GetNumbers(string input) //функция перевода строки в массив из целых чисел (если есть пробелы)
+{
+    int[] array = input.Split(' ').
               Where(x => !string.IsNullOrWhiteSpace(x)).
               Select(x => int.Parse(x)).ToArray();
+    return array;
+}
 
+
+int GetCount(int[] array) // функция на простой цикл
+{
     int count = 0;
     for (int i = 0; i < array.Length; i++)
     {
@@ -22,7 +37,3 @@ int PositiveNumbersInString(string[] text)
     }
     return count;
 }
-
-Console.WriteLine(Console.ReadLine(PositiveNumbersInString()));
-
-//Console.WriteLine($"Чисел больше нуля:  {count}");
