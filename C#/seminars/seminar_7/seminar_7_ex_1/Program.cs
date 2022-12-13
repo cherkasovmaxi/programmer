@@ -34,7 +34,7 @@ void GetArrayAsString(int[,] massive)
     {
         for (int j = 0; j < massive.GetLength(1); j++)
         {
-            Console.WriteLine($"{massive[i, j]}  ");
+            Console.Write($"{massive[i, j]}  ");
         }
         Console.WriteLine();
     }
