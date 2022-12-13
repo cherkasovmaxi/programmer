@@ -20,7 +20,7 @@ int Readint()
     return a; //так как надо ввети одно число - сразу делаем return a
 }
 
-void FillDimension(int index, int[,] massive)
+void FillDimension(int index, int [,] massive)
 {
     for (int i = 0; i < massive.GetLength(1); i++)
     {

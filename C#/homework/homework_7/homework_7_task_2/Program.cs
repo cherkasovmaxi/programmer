@@ -42,7 +42,7 @@ void Task47()
         }
         return array;
     }
-    double[,] array = TwoDementionArray(Readint(), Readint());
+    double[,] array = TwoDementionArray(Readint(),Readint());
 }
 
 
