@@ -1,4 +1,6 @@
-﻿bool homeWork = true;
+﻿using System;
+
+bool homeWork = true;
 
 while (homeWork)
 {
@@ -58,5 +60,59 @@ void Task50()
 
 void Task52()
 {
+    Console.WriteLine("Введите размер двумерного массива и получите среднее " +
+                     "арифметическое каждого столбца");
+    int Readint()
+    {
+        Console.WriteLine("input number");
+        int a = int.Parse(Console.ReadLine()!);
+        Console.WriteLine();
+        return a;
+    }
+
+    int [,] TwoDementionArray(int lenght, int secondlenght)
+    {
+        Random random = new Random();
+        int[,] array = new int[lenght, secondlenght];
+
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                array[i, j] =  random.Next(10);
+                Console.Write($"{array[i, j]}    ");
+               
+            }
+            Console.WriteLine();
+        }
+        return array;
+    }
+    
+    int[,] array = TwoDementionArray(Readint(), Readint());
+
+    int AvgColumn(int[,] array)
+    {
+        int amount = 0;
+        int i = 0;
+        int avg = 0;
+        {                        
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    amount = amount + array[i, j];
+                    avg = avg + amount/(j+1);
+                    Console.WriteLine(avg);
+                }
+                
+           
+            
+        }
+        return avg;
+    }
+
+    Console.WriteLine();
+    Console.WriteLine(AvgColumn(array));
+
+    
+   
 
 }
