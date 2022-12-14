@@ -4,14 +4,14 @@ bool homeWork = true;
 
 while (homeWork)
 {
-    Console.WriteLine("Введите номер задачи, например task47 и нажмите Enter");
+    Console.WriteLine("Введите номер задачи, например 47 и нажмите Enter");
     string command = Console.ReadLine();
 
     switch (command)
     {
-        case "task47": Task47(); break;
-        case "task50": Task50(); break;
-        case "task52": Task52(); break;
+        case "47": Task47(); break;
+        case "50": Task50(); break;
+        case "52": Task52(); break;
         case "exit": homeWork = false; break;
     }
 }
@@ -65,7 +65,7 @@ void Task52()
     int Readint()
     {
         Console.WriteLine("input number");
-        int a = int.Parse(Console.ReadLine()!);
+        int a = int.Parse(Console.ReadLine());
         Console.WriteLine();
         return a;
     }
@@ -93,18 +93,18 @@ void Task52()
     int AvgColumn(int[,] array)
     {
         int amount = 0;
-        int i = 0;
+        int j = 0;
         int avg = 0;
         {                        
-                for (int j = 0; j < array.GetLength(1); j++)
+                for (int i = 0; i < array.GetLength(0); i++)
                 {
                     amount = amount + array[i, j];
-                    avg = avg + amount/(j+1);
-                    Console.WriteLine(avg);
+                                    
                 }
-                
-           
-            
+            avg = avg + amount / array.GetLength(0);
+            Console.WriteLine(avg);
+
+
         }
         return avg;
     }
