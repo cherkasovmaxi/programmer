@@ -21,33 +21,33 @@ void Task47()
 {
     Console.WriteLine("Введите размер двумерного массива и получите двумерный " +
                       "массив из вещественных чисел");
-    int Readint()
-    {
-        Console.WriteLine("input number");
-        int a = int.Parse(Console.ReadLine()!);
-        return a;
-    }
-
-    double[,] TwoDementionArray(int lenght, int secondlenght)
-    {
-        Random random = new Random();
-        double[,] array = new double[lenght, secondlenght];
-
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
-            for (int j = 0; j < array.GetLength(1); j++)
-            {
-                array[i, j] = Math.Round((random.NextDouble() * 100), 2);
-                Console.Write($"{array[i, j]}    ");
-            }
-            Console.WriteLine();
-        }
-        return array;
-    }
+   
     double[,] array = TwoDementionArray(Readint(), Readint());
 }
 
+int Readint()
+{
+    Console.WriteLine("input number");
+    int a = int.Parse(Console.ReadLine()!);
+    return a;
+}
 
+double[,] TwoDementionArray(int lenght, int secondlenght)
+{
+    Random random = new Random();
+    double[,] array = new double[lenght, secondlenght];
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = Math.Round((random.NextDouble() * 100), 2);
+            Console.Write($"{array[i, j]}    ");
+        }
+        Console.WriteLine();
+    }
+    return array;
+}
 
 
 
@@ -62,13 +62,7 @@ void Task52()
 {
     Console.WriteLine("Введите размер двумерного массива и получите среднее " +
                      "арифметическое каждого столбца");
-    int Readint()
-    {
-        Console.WriteLine("input number");
-        int a = int.Parse(Console.ReadLine());
-        Console.WriteLine();
-        return a;
-    }
+
 
     int [,] TwoDementionArray(int lenght, int secondlenght)
     {
@@ -90,29 +84,27 @@ void Task52()
     
     int[,] array = TwoDementionArray(Readint(), Readint());
 
-    int AvgColumn(int[,] array)
+
+    double GetAvgColumn(int[,] array, int column)
     {
         int amount = 0;
-        int j = 0;
-        int avg = 0;
-        {                        
-                for (int i = 0; i < array.GetLength(0); i++)
-                {
-                    amount = amount + array[i, j];
-                                    
-                }
-            avg = avg + amount / array.GetLength(0);
-            Console.WriteLine(avg);
 
+        
+        for (int i = 0; i < array.GetLength(0); i++)
+            {
+              amount = amount + array[i, column];
+            }
 
-        }
-        return avg;
+        return Math.Round(amount / (double) array.GetLength(0), 2);
+       
     }
 
-    Console.WriteLine();
-    Console.WriteLine(AvgColumn(array));
+    for (int i = 0; i < array.GetLength(1); i++)
+    {
+    Console.WriteLine($"{i} --- {GetAvgColumn(array, i)}");
+    }
 
-    
-   
+
+
 
 }
