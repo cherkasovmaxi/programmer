@@ -9,9 +9,9 @@ while (homework_9)
 
     switch (chooseTask)
     {
-        case "64": Task64(); break;
-        case "66": Task66(); break;
-        case "68": Task68(); break;
+        case "64": Task64(); break; //собрать строку рекурсией от n до 1
+        case "66": Task66(); break; //сумма чисел в промежутке от m до n рекурсией  
+        case "68": Task68(); break; //Функция Аккермана рекурсией
         case "exit": homework_9 = false; break;
     }
 }
@@ -33,7 +33,7 @@ void Task64() //собрать строку рекурсией от n до 1
         Console.WriteLine(NumbersRec(a, b));
 }//собрать строку рекурсией от n до 1
 
-void Task66() //сумма чисел от m до n рекурсией
+void Task66() //сумма чисел в промежутке от m до n рекурсией
 {
     Console.WriteLine("Введите по порядку два целых числа и узнайте сумму всех чисел в промежетке");
 
@@ -53,7 +53,7 @@ void Task66() //сумма чисел от m до n рекурсией
 
     }
     Console.WriteLine(SumRange(m,n));
-}//сумма чисел от m до n рекурсией  
+}//сумма чисел в промежутке от m до n рекурсией  
 
 
 void Task68() //Функция Аккермана рекурсией
