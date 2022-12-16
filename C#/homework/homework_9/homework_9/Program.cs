@@ -11,6 +11,7 @@ while (homework_9)
     {
         case "64": Task64(); break;
         case "66": Task66(); break;
+        case "68": Task68(); break;
         case "exit": homework_9 = false; break;
     }
 }
@@ -34,16 +35,52 @@ void Task64() //собрать строку рекурсией от n до 1
 
 void Task66() //сумма чисел от m до n рекурсией
 {
-    Console.WriteLine("Введите два целых числа и узнайте сумму всех чисел в промежетке");
+    Console.WriteLine("Введите по порядку два целых числа и узнайте сумму всех чисел в промежетке");
 
     int m = Convert.ToInt32(Console.ReadLine());
     int n = Convert.ToInt32(Console.ReadLine());
-    int SumRec(int n, int m)
+    int SumRange(int m, int n)
     {
-        if (n == m) return 0;
-        else return n + SumRec(m, n-1);
+        if (n > m)
+        {
+            return n + SumRange(m, n - 1);
+        }
+        if (n < m)
+        {
+            return m + SumRange(n, m - 1);
+        }
+        return n;
 
     }
-    Console.WriteLine(SumRec(n,m));
+    Console.WriteLine(SumRange(m,n));
+}//сумма чисел от m до n рекурсией  
+
+
+void Task68() //сумма чисел от m до n рекурсией
+{
+    Console.WriteLine("Введите по порядку два целых числа и узнайте сумму всех чисел в промежетке");
+
+    int m = Convert.ToInt32(Console.ReadLine());
+    int n = Convert.ToInt32(Console.ReadLine());
+    
+
+    int Akkerman(int m, int n)
+    {
+        if (m == 0)
+        {
+            return n + 1;
+        }
+        if (m != 0 && n == 0)
+        {
+            return Akkerman(m - 1, 1);
+        }
+        if (m > 0 && n > 0)
+        {
+            return Akkerman(m - 1, Akkerman(m, n - 1));
+        }
+        return Akkerman(m, n);
+
+    }
+    Console.WriteLine(Akkerman(m, n));
 }//сумма чисел от m до n рекурсией  
 
