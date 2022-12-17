@@ -55,12 +55,42 @@ double[,] TwoDementionArray(int lenght, int secondlenght)
 void Task50() /*Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и 
     возвращает значение этого элемента или же указание, что такого элемента нет*/
 {
+    int[,] CreateArray(int firstLength, int secondLength)
+    {
+        var array = new int[firstLength, secondLength];
+        var random = new Random();
 
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
 
-
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                array[i,j] = random.Next(100);
+            }
+        }
+        return array;
+    }
+   
+    int GetValue(int[,] array, int x, int y)
+    {
+        if (x < 0 || x >= array.GetLength(0))
+            return -1;
+        if (y < 0 || y >= array.GetLength(1))
+            return -1;
+        return array[x, y];
+    }
+    Console.WriteLine("Получение значения выбранного элемента массива");
+    Console.WriteLine();
+    Console.WriteLine("Введите размер двумерного массива");
+    var array = CreateArray(Readint(),Readint());
+    Console.WriteLine("Введите индекс двумерного массива");
+    var abc = GetValue(array, Readint(), Readint());
+    Console.WriteLine();
+    Console.WriteLine($"Значение выбранного элемента массива: {abc}");
 
 }/* Напишите программу, которая на вход принимает позиции элемента в двумерном массиве,
   и возвращает значение этого элемента или же указание, что такого элемента нет*/
+
 
 
 void Task52() //Найти среднее арифметическое элементов в каждом столбце двумерного массива
