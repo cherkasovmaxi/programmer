@@ -1,4 +1,7 @@
-﻿bool homework_8 = true;
+﻿using System;
+using System.Runtime.InteropServices;
+
+bool homework_8 = true;
 
 while (homework_8)
 {
@@ -16,23 +19,135 @@ while (homework_8)
     }
 }
 
-
-/* 54. Задайте двумерный массив. 
- * Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива. */
-
-void Task54()
+int Readint()
 {
+    Console.WriteLine("Введите значение размера массива");
+    int a = int.Parse(Console.ReadLine());
+    return a;
+}
+
+int[,] CreateArray(int firstLength, int secondLength)
+{
+    var array = new int[firstLength, secondLength];
+    var random = new Random();
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = random.Next(100);
+        }
+    }
+    return array;
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void PrintArrayRow(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {        
+        Console.Write(array[i] + " ");
+       
+        
+    }
+
+    Console.WriteLine();
+}
+
+
+int[,] CreateSquareArray(int size)
+{
+    return CreateArray(size, size);    
+}
+    
+
+
+
+void Task54() /* 54. Задайте двумерный массив. 
+ * Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива. */
+{
+    void SortArray(int[,] array)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            var row = new int[array.GetLength(1)];
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                row[j] = array[i, j];
+            }
+
+            Array.Sort(row);
+
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                array[i, j] = row[j];
+            }
+        }
+
+    }
+        
+    
+    var array = CreateArray(Readint(), Readint());
+    PrintArray(array);
+    SortArray(array);
+    Console.WriteLine();
+    PrintArray(array);
+        
 
 }
 
 
 
-/* Задача 56: Задайте прямоугольный двумерный массив. 
+
+
+void Task56() /* Задача 56: Задайте прямоугольный двумерный массив. 
  * Напишите программу, которая будет находить строку с наименьшей суммой элементов. */
-
-void Task56()
 {
+    int GetSum(int[,] arr, int rowNumber)
+    {
+        var sum = 0;
+        for (int i = 0; i < arr.GetLength(1); i++)
+        {
+            sum += arr[rowNumber, i];
+        }
+        return sum;
+    }
 
+    var arr = CreateSquareArray(Readint());
+    PrintArray(arr);
+
+    var sums = new Dictionary<int, int>();
+
+    for(int i = 0; i < arr.GetLength(0); i++)
+    {
+        sums[GetSum(arr, i)] = i;
+    }
+
+    var summedArray = sums.Keys.ToArray();
+    Array.Sort(summedArray);
+
+    var row = new int[arr.GetLength(1)];
+    for(int i = 0; i < row.Length; i++)
+    {
+        row[i] = arr[sums[summedArray[0]], i];
+    }
+
+    Console.WriteLine("Строка с минимальной суммой элементов ниже:");
+    Console.WriteLine();
+    PrintArrayRow(row);
+    
 }
 
 
