@@ -27,8 +27,16 @@ void Task47() ////Задать двумерный массив размером 
 
 int Readint()
 {
-    Console.WriteLine("input number");
-    int a = int.Parse(Console.ReadLine()!);
+    Console.WriteLine("Введите значение размера массива");
+    int a = int.Parse(Console.ReadLine());
+    return a;
+}
+
+
+int Readint1()
+{
+    Console.WriteLine("Введите элемент массива");
+    int a = int.Parse(Console.ReadLine());
     return a;
 }
 
@@ -81,10 +89,8 @@ void Task50() /*Напишите программу, которая на вхо�
     }
     Console.WriteLine("Получение значения выбранного элемента массива");
     Console.WriteLine();
-    Console.WriteLine("Введите размер двумерного массива");
     var array = CreateArray(Readint(),Readint());
-    Console.WriteLine("Введите индекс двумерного массива");
-    var abc = GetValue(array, Readint(), Readint());
+    var abc = GetValue(array, Readint1(), Readint1());
     Console.WriteLine();
     Console.WriteLine($"Значение выбранного элемента массива: {abc}");
 
