@@ -6,7 +6,8 @@ bool homework_8 = true;
 
 while (homework_8)
 {
-    Console.Write("Введите номер задачи: ");
+    Console.WriteLine("Введите номер задачи из списка ниже и нажмите Enter: ");
+    Console.WriteLine("54, 56, 58, 60, 62");
     string chooseTask = Console.ReadLine();
 
     switch (chooseTask)
@@ -308,5 +309,45 @@ void Task62() /* Напишите программу, которая запол�
 11 16 15 06
 10 09 08 07 */
 {
+    var array = CreateSquareArray(Readint());
+    Console.WriteLine();
+
+    int temp = 1;
+    int i = 0;
+    int j = 0;
+
+    while (temp <= array.GetLength(0) * array.GetLength(1))
+    {
+        array[i, j] = temp;
+        temp++;
+        if (i <= j + 1 && i + j < array.GetLength(1) - 1)
+            j++;
+        else if (i < j && i + j >= array.GetLength(0) - 1)
+            i++;
+        else if (i >= j && i + j > array.GetLength(1) - 1)
+            j--;
+        else
+            i--;
+    }
+
+    PrintArraySpiral(array);
+
+    void PrintArraySpiral (int[,] array)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                if (array[i, j] / 10 <= 0)
+                    Console.Write($" {array[i, j]} ");
+
+                else Console.Write($"{array[i, j]} ");
+            }
+            Console.WriteLine();
+        }
+    }
+
+
+
 
 }
