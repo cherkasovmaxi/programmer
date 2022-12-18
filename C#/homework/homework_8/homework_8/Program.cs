@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using static System.Net.Mime.MediaTypeNames;
 
 bool homework_8 = true;
 
@@ -42,6 +43,23 @@ int[,] CreateArray(int firstLength, int secondLength)
     return array;
 }
 
+int[,] CreateArrayToTen(int firstLength, int secondLength)
+{
+    var array = new int[firstLength, secondLength];
+    var random = new Random();
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = random.Next(10);
+        }
+    }
+    return array;
+}
+
+
 void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
@@ -53,6 +71,23 @@ void PrintArray(int[,] array)
         Console.WriteLine();
     }
 }
+
+
+void PrintThreeDimensionArray(int[, ,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+
+                Console.Write(array[i, j, k] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+
 
 void PrintArrayRow(int[] array)
 {
@@ -67,11 +102,38 @@ void PrintArrayRow(int[] array)
 }
 
 
+
+
 int[,] CreateSquareArray(int size)
 {
     return CreateArray(size, size);    
 }
-    
+
+int[,] CreateSquareArrayToTen(int size)
+{
+    return CreateArrayToTen(size, size);
+}
+
+int[, ,] CreateThreeDimensionArray(int firstLength, int secondLength, int thirdLength)
+{
+    var array = new int[firstLength, secondLength, thirdLength];
+    var random = new Random();
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                array[i, j, k] = random.Next(100);
+            }
+            
+        }
+    }
+    return array;
+}
+
 
 
 
@@ -162,11 +224,48 @@ void Task56() /* Задача 56: Задайте прямоугольный дв
  */
 void Task58()
 {
+    var firstArray = CreateSquareArrayToTen(2);
+    PrintArray(firstArray);
+    Console.WriteLine();
+    var secondArray = CreateSquareArrayToTen(2);
+    PrintArray(secondArray);
+    Console.WriteLine();
+    var resultArray = CreateSquareArrayToTen(2);
+    MultiplicationArray(firstArray, secondArray, resultArray);
+    Console.WriteLine();
+    PrintArray(resultArray);
+    Console.WriteLine();
+
+    void MultiplicationArray(int[,] arrayOne, int[,] arrayTwo, int[,] resultArray)
+    {
+
+        for (int i = 0; i < resultArray.GetLength(0); i++)
+        {
+            for (int j = 0; j < resultArray.GetLength(1); j++)
+            {
+                int sum = 0;
+                for (int k = 0; k < firstArray.GetLength(1); k++)
+                {
+                    sum += firstArray[i, k] * secondArray[k, j];
+                }
+                resultArray[i, j] = sum;
+            }
+        }
+
+    }
+    //string text = MultiplicationArray(arrayOne, arrayTwo);
+    //int[,] arrayMultiplication = text.Split(' ').
+    //      Where(x => !string.IsNullOrWhiteSpace(x)).
+    //      Select(x => int.Parse(x)).ToArray();
+    //PrintArray(arrayMultiplication);
 
 }
 
 
-/* .Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
+
+
+
+void Task60() /* .Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
 Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 Массив размером 2 x 2 x 2 
 66(0,0,0) 25(0,1,0)
@@ -174,9 +273,27 @@ void Task58()
 27(0,0,1) 90(0,1,1)
 26(1,0,1) 55(1,1,1) 
  */
-
-void Task60()
 {
+    var array = CreateThreeDimensionArray(2, 2, 2);
+    PrintThreeDimensionArray(array);
+    PrintArrayElementIndex(array);
+
+    void PrintArrayElementIndex(int[, ,] array)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                for (int k = 0; k < array.GetLength(2); k++)
+                {
+                    Console.WriteLine($"{array[i, j, k]}  ({i}, {j}, {k})");
+                }
+
+            }
+        }
+        Console.WriteLine();
+    }
+
 
 }
 
